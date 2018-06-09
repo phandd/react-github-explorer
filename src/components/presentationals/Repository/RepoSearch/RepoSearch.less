@@ -1,0 +1,34 @@
+.repo-search {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+
+  .repo-search-input {
+    margin-right: 25px;
+    padding-top: 4px;
+    flex-basis: 90%;
+    input {
+      width: 100%;
+      height: 40px;
+      background-color: @white-text-color;
+      color: @repo-search-input-color;
+      padding-left: 15px;
+      border-radius: 8px;
+      border: 0.5px solid @repo-item-border-color;
+      outline: none;
+    }
+  }
+
+  .repo-search-button {
+    &:extend(.view-repos-button .button);
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 10%;
+    color: @white-text-color;
+
+  }
+}

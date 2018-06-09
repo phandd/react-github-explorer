@@ -4,15 +4,15 @@ export default (props) => {
   return(
     <div className='profile-stats'>
       <div>
-        <span>{props.profile.followers}</span>
+        <span>{props.followers}</span>
         <span>Followers</span>
       </div>
       <div>
-        <span>{props.profile.public_repos}</span>
+        <span>{props.public_repos}</span>
         <span>Public repos</span>
       </div>
       <div>
-        <span>{props.profile.following}</span>
+        <span>{props.following}</span>
         <span>Following</span>
       </div>
     </div>

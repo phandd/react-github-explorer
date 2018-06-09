@@ -19,5 +19,11 @@ export const factory = {
   },
   getUserProfile(username) {
     return api(`https://api.github.com/users/${username}`);
+  },
+  getUserRepoList(username) {
+    return api(`https://api.github.com/users/${username}/repos`)
+  },
+  searchUserRepo(username, query) {
+    return api(`https://api.github.com/search/repositories?q=${query}+user:${username}+fork:true`)
   }
 };

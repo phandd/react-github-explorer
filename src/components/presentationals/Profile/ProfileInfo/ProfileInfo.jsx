@@ -4,14 +4,14 @@ export default (props) => {
   return(
     <div className='profile'>
       <div className='profile-avatar'>
-        <img className='img' src={props.profile.avatar_url} alt=''/>
+        <img className='img' src={props.avatar_url} alt=''/>
       </div>
       <div className='profile-data'>
         <div>
-          <h3>{props.profile.name || props.profile.login}</h3>
+          <h3>{props.name || props.login}</h3>
         </div>
         <div>
-          <span>{props.profile.login}</span>
+          <span>{props.login}</span>
         </div>
       </div>
     </div>

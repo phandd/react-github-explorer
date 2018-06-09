@@ -6,9 +6,9 @@ import ViewReposButton from '../ViewReposButton/ViewReposButton';
 export default (props) => {
   return(
     <div className='profile-overview'>
-      <ProfileInfo profile={props.profile}/>
-      <ProfileStats profile={props.profile}/>
-      <ViewReposButton/>
+      <ProfileInfo {...props}/>
+      <ProfileStats {...props}/>
+      <ViewReposButton {...props}/>
     </div>
   )
 }

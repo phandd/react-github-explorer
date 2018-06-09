@@ -13,14 +13,23 @@ export default class UserPage extends React.Component{
     return (
       <div>
         <div className='profile-overview'>
-          <ProfileOverview profile={this.state.profile}/>
+          <ProfileOverview {...this.state.profile}/>
         </div>
       </div>
     );
   };
-  componentDidMount() {
+
+  loadUser(username) {
+    if (username) {
+      return factory.getUserProfile(username)
+        .then(profile => {console.log(profile);this.setState({ profile })})
+    }
+
     factory.getRandomUser()
       .then(user => factory.getUserProfile(user.login))
       .then(profile => {console.log(profile);this.setState({ profile })})
+  }
+  componentDidMount() {
+    this.loadUser(this.props.match.params.username)
   }
 }
