@@ -25,5 +25,8 @@ export const factory = {
   },
   searchUserRepo(username, query) {
     return api(`https://api.github.com/search/repositories?q=${query}+user:${username}+fork:true`)
+  },
+  getRepoDetail(username, repo) {
+    return api(`https://api.github.com/repos/${username}/${repo}`)
   }
 };

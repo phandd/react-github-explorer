@@ -1,0 +1,64 @@
+.repo-content {
+  color: @text-primary-color;
+  background-color: @white-text-color;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid @repo-item-border-color;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  span {
+    font-size: 14px;
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  .repo-update {
+    font-size: 13px;
+    color: @almost-white-text-color;
+  }
+
+  .repo-name {
+    font-size: 18px;
+    font-family: GothamPro-Medium;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .repo-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .repo-language {
+      span {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-family: GothamPro-Medium;
+        font-size: 14px;
+        color: @lighter-primary-color;
+      }
+    }
+
+    .repo-stats {
+      & > div {
+        display: inline-block;
+
+        & > * {
+          display: inline-block;
+          color: @lighter-primary-color;
+        }
+
+        i {
+          margin-right: 5px;
+        }
+
+        span {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
