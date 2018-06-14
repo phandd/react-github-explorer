@@ -7,14 +7,15 @@ export default class UserRepoDetail extends React.Component {
     super();
     this.state = {
       repo: {},
-      readme: ''
+      readme: '',
+      dirs: []
     }
   }
 
   render() {
     return(
       <div>
-        <RepoDetail repo={this.state.repo} readme={this.state.readme}/>
+        <RepoDetail repo={this.state.repo} readme={this.state.readme} dirs={this.state.dirs}/>
       </div>
     )
   };
@@ -25,5 +26,8 @@ export default class UserRepoDetail extends React.Component {
 
     factory.getRepoReadme(this.props.match.params.username, this.props.match.params.repoName)
       .then(data => {console.log(window.atob(data.content)); this.setState({ readme: window.atob(data.content.replace(/\s/g, ''))  })});
+
+    factory.getRepoDirs(this.props.match.params.username, this.props.match.params.repoName)
+      .then(dirs => {console.log(dirs); this.setState({ dirs })});
   }
 }

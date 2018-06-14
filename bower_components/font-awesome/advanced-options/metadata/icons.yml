@@ -2631,7 +2631,7 @@ copy:
       - duplicate
       - clone
       - file
-      - files-o
+      - dirs-o
   styles:
     - solid
     - regular

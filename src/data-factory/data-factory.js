@@ -32,7 +32,7 @@ export const factory = {
   getRepoReadme(username, repo) {
     return api(`https://api.github.com/repos/${username}/${repo}/readme`);
   },
-  getRepoContent(username, repo) {
-    return api(`https://api.github.com/repos/${username}/${repo}/content`);
+  getRepoDirs(username, repo) {
+    return api(`https://api.github.com/repos/${username}/${repo}/contents`);
   }
 };
