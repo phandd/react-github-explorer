@@ -1,4 +1,5 @@
 import React from 'react';
+import filesize from 'filesize';
 
 export default (props) => {
   return(
@@ -8,7 +9,7 @@ export default (props) => {
       </div>
       <div>
         <div className='repo-dir-file-data-name'>{props.name}</div>
-        <div className='repo-dir-file-data-size'>{props.size}</div>
+        <div className='repo-dir-file-data-size'>{filesize(props.size)}</div>
       </div>
     </div>
   )
