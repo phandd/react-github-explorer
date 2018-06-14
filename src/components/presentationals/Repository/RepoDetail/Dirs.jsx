@@ -24,9 +24,9 @@ export default (props) => {
     .sort(sortFn)
     .map(item => {
       if (item.type === DIR_ITEM_TYPE.folder) {
-        return <Folder name={item.name}/>
+        return <Folder name={item.name} key={item.sha}/>
       } else {
-        return <File name={item.name} size={item.size}/>
+        return <File name={item.name} size={item.size} key={item.sha}/>
       }
     });
 
