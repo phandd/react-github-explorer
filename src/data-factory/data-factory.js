@@ -21,12 +21,18 @@ export const factory = {
     return api(`https://api.github.com/users/${username}`);
   },
   getUserRepoList(username) {
-    return api(`https://api.github.com/users/${username}/repos`)
+    return api(`https://api.github.com/users/${username}/repos`);
   },
   searchUserRepo(username, query) {
-    return api(`https://api.github.com/search/repositories?q=${query}+user:${username}+fork:true`)
+    return api(`https://api.github.com/search/repositories?q=${query}+user:${username}+fork:true`);
   },
   getRepoDetail(username, repo) {
-    return api(`https://api.github.com/repos/${username}/${repo}`)
+    return api(`https://api.github.com/repos/${username}/${repo}`);
+  },
+  getRepoReadme(username, repo) {
+    return api(`https://api.github.com/repos/${username}/${repo}/readme`);
+  },
+  getRepoContent(username, repo) {
+    return api(`https://api.github.com/repos/${username}/${repo}/content`);
   }
 };
