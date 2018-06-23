@@ -8,14 +8,15 @@ export default class UserRepoDetail extends React.Component {
     this.state = {
       repo: {},
       readme: '',
-      dirs: []
+      dirs: [],
+      contributors: []
     }
   }
 
   render() {
     return(
       <div>
-        <RepoDetail repo={this.state.repo} readme={this.state.readme} dirs={this.state.dirs}/>
+        <RepoDetail {...this.state}/>
       </div>
     )
   };
@@ -29,5 +30,11 @@ export default class UserRepoDetail extends React.Component {
 
     factory.getRepoDirs(this.props.match.params.username, this.props.match.params.repoName)
       .then(dirs => {console.log(dirs); this.setState({ dirs })});
+
+    factory.getRepoContributors(this.props.match.params.username, this.props.match.params.repoName)
+      .then(contributors => {console.log(contributors); this.setState({ contributors })});
+
+    factory.getRepoLanguages(this.props.match.params.username, this.props.match.params.repoName)
+      .then(languages => {console.log(languages); this.setState({ languages })});
   }
 }

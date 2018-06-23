@@ -272,7 +272,7 @@ export type IconName = 'address-book' |
   'align-right' | 
   'allergies' | 
   'ambulance' | 
-  'american-sign-language-interpreting' | 
+  'american-sign-lang-interpreting' |
   'anchor' | 
   'angle-double-down' | 
   'angle-double-left' | 
@@ -692,7 +692,7 @@ export type IconName = 'address-book' |
   'key' | 
   'keyboard' | 
   'kiwi-bird' | 
-  'language' | 
+  'lang' |
   'laptop' | 
   'leaf' | 
   'lemon' | 
@@ -967,7 +967,7 @@ export type IconName = 'address-book' |
   'shower' | 
   'sign' | 
   'sign-in-alt' | 
-  'sign-language' | 
+  'sign-lang' |
   'sign-out-alt' | 
   'signal' | 
   'sitemap' | 

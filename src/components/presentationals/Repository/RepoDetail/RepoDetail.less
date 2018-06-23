@@ -3,6 +3,10 @@
   padding: 15px;
 }
 
+.repo-detail-content {
+  min-height: 60vh;
+}
+
 .repo-tab-menu {
   border-bottom: 1px solid @repo-item-border-color;
   margin-bottom: 15px;
@@ -90,6 +94,90 @@
     .repo-dir-file-data-size {
       color: @almost-white-text-color;
       font-size: 13px;
+    }
+  }
+}
+
+.repo-contributors {
+  background-color: @light-grey-background-color;
+  padding: 20px;
+
+  .repo-contributor {
+    background-color: @white-text-color;
+    display: flex;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 1px solid @repo-item-border-color;
+
+    .repo-contributor-avatar {
+      width: 40px;
+      height: 40px;
+      padding-left: 15px;
+      padding-right: 15px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+    }
+
+    .repo-contributor-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & > span:nth-child(1) {
+        font-family: GothamPro-Medium;
+        font-size: 18px;
+        color: @text-primary-color;
+      }
+
+      & > span:nth-child(2) {
+        font-size: 13px;
+        color: @almost-white-text-color;
+      }
+    }
+  }
+}
+
+.repo-languages {
+  display: flex;
+  flex-direction: column;
+  background-color: @white-text-color;
+  padding: 10px 20px;
+  border: 1px solid @repo-item-border-color;
+  border-radius: 6px;
+
+  .repo-language {
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .repo-language-color {
+      height: 35px;
+      width: 35px;
+      margin-right: 30px;
+      border-radius: 50%;
+    }
+
+    .repo-language-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & > span:nth-child(1) {
+        font-family: GothamPro-Medium;
+        font-size: 18px;
+        color: @text-primary-color;
+      }
+
+      & > span:nth-child(2) {
+        font-size: 14px;
+        color: @almost-white-text-color;
+      }
     }
   }
 }

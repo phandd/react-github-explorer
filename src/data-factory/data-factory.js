@@ -34,5 +34,11 @@ export const factory = {
   },
   getRepoDirs(username, repo) {
     return api(`https://api.github.com/repos/${username}/${repo}/contents`);
+  },
+  getRepoContributors(username, repo) {
+    return api(`https://api.github.com/repos/${username}/${repo}/contributors`);
+  },
+  getRepoLanguages(username, repo) {
+    return api(`https://api.github.com/repos/${username}/${repo}/languages`);
   }
 };

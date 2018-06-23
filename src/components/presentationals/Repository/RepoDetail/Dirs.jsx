@@ -1,6 +1,7 @@
 import React from 'react';
 import File from './File';
 import Folder from './Folder';
+import NoData from '../../NoData/NoData';
 
 const DIR_ITEM_TYPE = {
   folder: 'dir',
@@ -20,7 +21,7 @@ export default (props) => {
   };
 
 
-  const dirItems = props.dirs
+  const dirItems = Array.isArray(props.dirs) && props.dirs
     .sort(sortFn)
     .map(item => {
       if (item.type === DIR_ITEM_TYPE.folder) {
@@ -31,8 +32,9 @@ export default (props) => {
     });
 
   return(
+    dirItems ?
     <div className='repo-dir'>
       {dirItems}
-    </div>
+    </div> : <NoData/>
   )
 }

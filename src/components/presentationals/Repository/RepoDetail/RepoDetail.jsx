@@ -2,6 +2,8 @@ import React from 'react';
 import RepoContent from '../RepoContent/RepoContent';
 import Readme from './Readme';
 import Dirs from './Dirs';
+import Contributors from './Contributors';
+import Languages from './Languages';
 
 const TABS = {
   readme: 'README',
@@ -34,6 +36,11 @@ export default class RepoDetail extends React.Component {
       case TABS.dirs:
         renderedContent = <Dirs dirs={this.props.dirs}/>;
         break;
+      case TABS.contributors:
+        renderedContent = <Contributors contributors={this.props.contributors}/>;
+        break;
+      case TABS.languages:
+        renderedContent = <Languages languages={this.props.languages}/>
     }
 
     return(
@@ -61,7 +68,7 @@ export default class RepoDetail extends React.Component {
               <span>languagues</span>
             </div>
           </div>
-          <div>
+          <div className='repo-detail-content'>
             {renderedContent}
           </div>
         </div>
