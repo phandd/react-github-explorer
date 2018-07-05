@@ -17,10 +17,10 @@ export default class UserRepoDetail extends React.Component {
   }
 
   render() {
-    //TODO For now the repo pass in RepoDetail is the repo data from RepoList by the Link state (src/components/presentationals/Repository/RepoItem/RepoItem.jsx). If user access the link directly from address bar, this property will not available. We have to assure when the repo not available from Link component, we will fetch it from API.
+    //TODO For now the repo pass in RepoDetail is the repo data from RepoList by the Link state (src/components/presentationals/Repository/RepoItem/RepoItem.jsx). If user access the link directly from address bar, this property will not available. We have to assure when the repo not available from Link component, we will fetch it from API. (done)
     return(
       <div>
-        <RepoDetail {...this.state} repo={this.props.location.state.repo} onRetryFetchingRepoData={this.fetchRepoData}/>
+        <RepoDetail {...this.state} onRetryFetchingRepoData={this.fetchRepoData}/>
       </div>
     )
   };
@@ -30,8 +30,8 @@ export default class UserRepoDetail extends React.Component {
     let data = {};
 
     return Promise.all([
-      // factory.getRepoDetail(this.props.match.params.username, this.props.match.params.repoName)
-      //   .then(repo => {repo && this.setState({ repo })}),
+      this.state.repo.id ? Promise.resolve() : factory.getRepoDetail(this.props.match.params.username, this.props.match.params.repoName) // Check repo id to decide to use repo data (already available) from Link component or (not available) fetch data from API.
+        .then(repo => {repo && this.setState({ repo })}),
 
       factory.getRepoReadme(this.props.match.params.username, this.props.match.params.repoName)
         .then(response => response.content && (data.readme = window.atob(response.content.replace(/\s/g, '')))),
@@ -52,6 +52,10 @@ export default class UserRepoDetail extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.location && this.props.location.state) {
+      this.setState({ repo: this.props.location.state.repo })
+    }
+
     this.fetchRepoData();
   }
 }
