@@ -5,7 +5,10 @@ import RepoContent from '../RepoContent/RepoContent';
 export default (props) => {
   return(
     <div className='repo-item'>
-      <Link to={`/user/${props.owner.login}/repos/${props.name}`}/>
+      <Link to={{
+        pathname: `/user/${props.owner.login}/repos/${props.name}`,
+        state: { repo: props }
+      }}/>
       <RepoContent {...props}/>
     </div>
   )

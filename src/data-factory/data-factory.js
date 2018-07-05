@@ -7,9 +7,6 @@ const api = (url) => {
     },
   })
     .then(response => response.json())
-    .catch(err => {
-      throw new Error(`Cannot get data from ${url}: ${err}`)
-    })
 };
 
 export const factory = {

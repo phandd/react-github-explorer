@@ -214,7 +214,7 @@
   padding: 15px;
 }
 .repo-detail-content {
-  min-height: 60vh;
+  min-height: 100vh;
 }
 .repo-tab-menu {
   border-bottom: 1px solid #e5e5e5;
@@ -294,7 +294,6 @@
 }
 .repo-contributors {
   background-color: #f5f5f5;
-  padding: 20px;
 }
 .repo-contributors .repo-contributor {
   background-color: #fff;
@@ -368,6 +367,51 @@
   margin-top: 40px;
   font-size: 14px;
   color: #aeb6c0;
+}
+.offline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aeb6c0;
+  font-size: 15px;
+  margin: 20px;
+}
+.offline .offline-retry-button {
+  text-transform: uppercase;
+  color: #64b5f6;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.loading-block {
+  height: 3px;
+  width: 100%;
+}
+.loading-block > div {
+  transition: all 0.4s;
+  height: 100%;
+}
+.loading-block .loading {
+  background-color: #46a42f;
+  animation-name: loading;
+  animation-duration: 4s;
+  max-width: 80%;
+}
+.loading-block .fail {
+  background-color: #f44336;
+}
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  25% {
+    width: 25%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    width: 80%;
+  }
 }
 @font-face {
   font-family: GothamPro;
