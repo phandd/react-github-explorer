@@ -56,7 +56,9 @@
 }
 .profile-stats > div {
   flex-basis: 33%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .profile-stats > div:nth-child(1),
 .profile-stats > div:nth-child(2) {
@@ -166,6 +168,7 @@
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #e5e5e5;
+  min-height: 135px;
 }
 .repo-content:last-child {
   margin-bottom: 0;
@@ -413,6 +416,9 @@
   100% {
     width: 80%;
   }
+}
+.text-holder {
+  background-color: rgba(135, 135, 135, 0.2);
 }
 @font-face {
   font-family: GothamPro;

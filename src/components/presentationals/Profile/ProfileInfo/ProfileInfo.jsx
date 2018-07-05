@@ -1,4 +1,5 @@
 import React from 'react';
+import TextHolder from '../../TextHolder/TextHolder'
 
 export default (props) => {
   return(
@@ -8,10 +9,10 @@ export default (props) => {
       </div>
       <div className='profile-data'>
         <div>
-          <h3>{props.name || props.login}</h3>
+          <h3><TextHolder width={130} height={18}>{props.name || props.login}</TextHolder></h3>
         </div>
         <div>
-          <span>{props.login}</span>
+          <span><TextHolder width={56} height={12}>{props.login}</TextHolder></span>
         </div>
       </div>
     </div>

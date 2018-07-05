@@ -1,11 +1,12 @@
 import React from 'react';
 import moment from 'moment';
+import TextHolder from '../../TextHolder/TextHolder'
 
 export default (props) => {
   return(
     <div className='repo-content'>
-      <span className='repo-name'>{props.name}</span>
-      <span className='repo-description'>{props.description}</span>
+      <span className='repo-name'><TextHolder width={150} height={23}>{props.name}</TextHolder></span>
+      <span className='repo-description'><TextHolder width={260} height={21}>{props.description}</TextHolder></span>
       <span className='repo-update'>Updated {moment(props.updated_at).fromNow()}</span>
       <div className='repo-info'>
         <div className='repo-language'>
