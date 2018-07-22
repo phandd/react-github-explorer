@@ -11,6 +11,13 @@
   border-bottom: 1px solid @repo-item-border-color;
   margin-bottom: 15px;
   margin-left: 10px;
+  overflow-x: auto;
+  display: flex;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   & > div {
     cursor: pointer;
     display: inline-block;
@@ -20,6 +27,7 @@
     font-family: GothamPro;
     color: @lighter-primary-color;
     position: relative;
+    white-space: nowrap;
   }
 
   .repo-tab-menu-item {

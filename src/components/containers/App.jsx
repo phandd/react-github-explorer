@@ -16,10 +16,12 @@ export default class App extends React.Component {
     return(
       <div>
         <Header/>
-        <Route path={ROUTES.HOME_PATH} exact component={UserPage}/>
-        <Route path={ROUTES.USER_DETAIL} exact component={UserPage}/>
-        <Route path={ROUTES.USER_REPOS_LIST} exact component={UserRepoList}/>
-        <Route path={ROUTES.REPO_DETAIL} component={UserRepoDetail}/>
+        <div className='site-content'>
+          <Route path={ROUTES.HOME_PATH} exact component={UserPage}/>
+          <Route path={ROUTES.USER_DETAIL} exact component={UserPage}/>
+          <Route path={ROUTES.USER_REPOS_LIST} exact component={UserRepoList}/>
+          <Route path={ROUTES.REPO_DETAIL} component={UserRepoDetail}/>
+        </div>
         <Footer/>
       </div>
     )

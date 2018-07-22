@@ -10,7 +10,7 @@ export default (props) => {
       <span className='repo-update'>Updated {moment(props.updated_at).fromNow()}</span>
       <div className='repo-info'>
         <div className='repo-language'>
-          <span>{props.lang}</span>
+          <span>{props.language}</span>
         </div>
         <div className='repo-stats'>
           <div>

@@ -1,35 +1,55 @@
 import React from 'react'
 import { factory } from '../../../data-factory/data-factory';
-import ProfileOverview from '../../presentationals/Profile/ProfileOverview/ProfileOverview'
+import UserHome from '../../presentationals/UserHome/UserHome';
+import { LOAD_STATUS } from '../../../utils/load-status';
 
 export default class UserPage extends React.Component{
   constructor() {
     super();
     this.state = {
-      profile: {}
-    }
+      profile: {},
+      popularRepos: [],
+      loadStatus: LOAD_STATUS.loading
+    };
+    this.onRetryLoadUserInformation = this.onRetryLoadUserInformation.bind(this);
   }
   render() {
     return (
       <div>
-        <div className='profile-overview'>
-          <ProfileOverview {...this.state.profile}/>
-        </div>
+        <UserHome {...this.state} onRetryLoadUserInformation={this.onRetryLoadUserInformation}/>
       </div>
     );
   };
 
-  loadUser(username) {
+  onRetryLoadUserInformation(e, username) { //Because the first parameter for event handler will always be the event object itself
+    this.loadUserInformation(username);
+  }
+
+  loadUserInformation(username) {
+    this.setState({ loadStatus: LOAD_STATUS.loading });
     if (username) {
       return factory.getUserProfile(username)
-        .then(profile => {console.log(profile);this.setState({ profile })})
+        .then(profile => { this.setState({ profile }) })
+        .then(() => factory.getUserPopularRepos(username))
+        .then(popularRepos => this.setState({ popularRepos }))
+        .then(() => this.setState({ loadStatus: LOAD_STATUS.done }))
+        .catch(() => this.setState({ loadStatus: LOAD_STATUS.fail }));
     }
 
-    factory.getRandomUser()
-      .then(user => factory.getUserProfile(user.login))
-      .then(profile => {console.log(profile);this.setState({ profile })})
+    return factory.getRandomUser()
+      .then(data => data.items[0])
+      .then(user => {
+        return factory.getUserProfile(user.login)
+          .then(profile => { this.setState({ profile }) })
+          .then(() => factory.getUserPopularRepos(user.login))
+          .then(repos => this.setState({ popularRepos: repos.items }))
+      })
+      .then(() => this.setState({ loadStatus: LOAD_STATUS.done }))
+      .catch(() => this.setState({ loadStatus: LOAD_STATUS.fail }));
   }
+
+
   componentDidMount() {
-    this.loadUser(this.props.match.params.username)
+    this.loadUserInformation(this.props.match.params.username);
   }
 }
