@@ -5,7 +5,30 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  z-index: 1000;
+  z-index: 100;
+
+  .nav-toggler {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 18%;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    span {
+      background-color: @white-text-color;
+      height: 3px;
+      width: 26px;
+      border-radius: 1px;
+      display: block;
+      margin-top: 3px;
+      margin-bottom: 3px;
+    }
+  }
 
   .brand-logo {
     height: 100%;

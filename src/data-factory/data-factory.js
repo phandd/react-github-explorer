@@ -39,5 +39,9 @@ export const factory = {
   },
   getRepoLanguages(username, repo) {
     return api(`https://api.github.com/repos/${username}/${repo}/languages`);
+  },
+  searchUser(query) {
+    return api('https://api.github.com/legacy/user/search/' +
+      `${query || Math.random().toString(36).split('')[2]}?sort:followers`);
   }
 };

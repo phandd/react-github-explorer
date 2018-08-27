@@ -31,7 +31,7 @@ export default class UserPage extends React.Component{
       return factory.getUserProfile(username)
         .then(profile => { this.setState({ profile }) })
         .then(() => factory.getUserPopularRepos(username))
-        .then(popularRepos => this.setState({ popularRepos }))
+        .then(popularRepos => this.setState({ popularRepos: popularRepos.items }))
         .then(() => this.setState({ loadStatus: LOAD_STATUS.done }))
         .catch(() => this.setState({ loadStatus: LOAD_STATUS.fail }));
     }
@@ -51,5 +51,16 @@ export default class UserPage extends React.Component{
 
   componentDidMount() {
     this.loadUserInformation(this.props.match.params.username);
+  }
+
+  componentDidUpdate (prevProps) {
+    // To handle the case when route changes from /user/usernameA to /user/usernameB (nav bar), otherwise the state is changed, the component did update but data remains the same as there's only componentDidMount life cycle handler.
+    // Read more at : https://github.com/ReactTraining/react-router/blob/c865bc6b331eabd853641dcc7e0224a7dce76f3b/docs/guides/ComponentLifecycle.md
+    const oldUsername = prevProps.match.params.username;
+    const newUsername = this.props.match.params.username;
+
+    if (oldUsername != newUsername) {
+      this.loadUserInformation(this.props.match.params.username);
+    }
   }
 }

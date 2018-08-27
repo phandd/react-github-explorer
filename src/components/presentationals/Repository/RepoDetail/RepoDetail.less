@@ -109,44 +109,9 @@
 .repo-contributors {
   background-color: @light-grey-background-color;
 
-  .repo-contributor {
+  .user-item {
     background-color: @white-text-color;
-    display: flex;
-    margin-bottom: 5px;
-    border-radius: 6px;
-    padding-top: 15px;
-    padding-bottom: 15px;
     border: 1px solid @repo-item-border-color;
-
-    .repo-contributor-avatar {
-      width: 40px;
-      height: 40px;
-      padding-left: 15px;
-      padding-right: 15px;
-
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-      }
-    }
-
-    .repo-contributor-data {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      & > span:nth-child(1) {
-        font-family: GothamPro-Medium;
-        font-size: 18px;
-        color: @text-primary-color;
-      }
-
-      & > span:nth-child(2) {
-        font-size: 13px;
-        color: @almost-white-text-color;
-      }
-    }
   }
 }
 

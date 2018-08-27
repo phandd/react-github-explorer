@@ -5,7 +5,28 @@
   display: flex;
   justify-content: center;
   position: fixed;
-  z-index: 1000;
+  z-index: 100;
+}
+.header-container .nav-toggler {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 18%;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.header-container .nav-toggler span {
+  background-color: #fff;
+  height: 3px;
+  width: 26px;
+  border-radius: 1px;
+  display: block;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 .header-container .brand-logo {
   height: 100%;
@@ -100,7 +121,8 @@
   margin-bottom: 35px;
 }
 .view-repos-button .button,
-.repo-search .repo-search-button {
+.repo-search .repo-search-button,
+.nav-menu .user-search .user-search-button {
   width: 245px;
   height: 50px;
   border-radius: 8px;
@@ -141,21 +163,6 @@
   flex-direction: row;
   margin-bottom: 20px;
 }
-.repo-search .repo-search-input {
-  margin-right: 25px;
-  padding-top: 4px;
-  flex-basis: 90%;
-}
-.repo-search .repo-search-input input {
-  width: 100%;
-  height: 40px;
-  background-color: #fff;
-  color: #8f9aa8;
-  padding-left: 15px;
-  border-radius: 8px;
-  border: 0.5px solid #e5e5e5;
-  outline: none;
-}
 .repo-search .repo-search-button {
   cursor: pointer;
   display: flex;
@@ -163,6 +170,7 @@
   align-items: center;
   flex-basis: 10%;
   color: #fff;
+  min-width: 80px;
 }
 .repo-content {
   color: #5c6877;
@@ -307,39 +315,9 @@
 .repo-contributors {
   background-color: #f5f5f5;
 }
-.repo-contributors .repo-contributor {
+.repo-contributors .user-item {
   background-color: #fff;
-  display: flex;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  padding-top: 15px;
-  padding-bottom: 15px;
   border: 1px solid #e5e5e5;
-}
-.repo-contributors .repo-contributor .repo-contributor-avatar {
-  width: 40px;
-  height: 40px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.repo-contributors .repo-contributor .repo-contributor-avatar img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-}
-.repo-contributors .repo-contributor .repo-contributor-data {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.repo-contributors .repo-contributor .repo-contributor-data > span:nth-child(1) {
-  font-family: GothamPro-Medium;
-  font-size: 18px;
-  color: #5c6877;
-}
-.repo-contributors .repo-contributor .repo-contributor-data > span:nth-child(2) {
-  font-size: 13px;
-  color: #aeb6c0;
 }
 .repo-languages {
   display: flex;
@@ -442,6 +420,93 @@
   font-size: 14px;
   color: #aeb6c0;
 }
+.search-input {
+  margin-right: 25px;
+  flex-basis: 90%;
+  display: flex;
+  align-items: center;
+}
+.search-input input {
+  width: 100%;
+  height: 40px;
+  background-color: #fff;
+  color: #8f9aa8;
+  padding-left: 15px;
+  border-radius: 8px;
+  border: 0.5px solid #e5e5e5;
+  outline: none;
+}
+.user-item {
+  display: flex;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.user-item .user-item-avatar {
+  width: 40px;
+  height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.user-item .user-item-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.user-item .user-item-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-item .user-item-data a {
+  font-family: GothamPro-Medium;
+  font-size: 18px;
+  color: #5c6877;
+  text-decoration: none;
+}
+.user-item .user-item-data span {
+  font-size: 13px;
+  color: #aeb6c0;
+}
+.nav-menu {
+  padding-top: 15px;
+  background-color: #3d536d;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.nav-menu .user-list {
+  color: #fff;
+  background-color: #3d536d;
+}
+.nav-menu .user-search {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.nav-menu .user-search .search-input {
+  flex-basis: auto;
+  flex-grow: 1;
+  margin-right: 0;
+}
+.nav-menu .user-search .search-input input {
+  border-radius: 8px 0 0 8px;
+}
+.nav-menu .user-search .user-search-button {
+  cursor: pointer;
+  width: 50px;
+  height: auto;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+}
+.nav-menu .user-item-data a {
+  font-size: 16px;
+  color: #fff;
+}
 @font-face {
   font-family: GothamPro;
   src: url(assets/fonts/GothamPro/GothamPro.woff);
@@ -459,6 +524,49 @@ body {
   padding: 0;
   font-family: GothamPro;
 }
+.container {
+  overflow-x: hidden;
+}
+.container > * {
+  transition: all 0.4s;
+}
+.container > .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80vw;
+}
+.container > .nav .user-item {
+  margin-bottom: 0;
+}
+.container > .site {
+  width: 100vw;
+}
 .site-content {
   padding-top: 60px;
+}
+.navbar-on .nav {
+  transform: translate3d(0vw, 0, 0);
+  position: absolute;
+  overflow-y: auto;
+  z-index: 100;
+  height: auto;
+}
+.navbar-on .site {
+  transform: translate3d(80vw, 0, 0);
+  position: fixed;
+}
+.navbar-off .nav {
+  transform: translate3d(-80vw, 0, 0);
+}
+.navbar-off .site {
+  transform: translate3d(0vw, 0, 0);
+}
+.site-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }

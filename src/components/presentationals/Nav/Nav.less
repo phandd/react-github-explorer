@@ -1,0 +1,49 @@
+.nav-menu {
+  padding-top: 15px;
+  background-color: @secondary-color;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  .user-list {
+    color: @white-text-color;
+    background-color: @secondary-color;
+  }
+
+  .user-search {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .search-input {
+      flex-basis: auto;
+      flex-grow: 1;
+      margin-right: 0;
+
+      input {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+
+    .user-search-button {
+      cursor: pointer;
+
+      &:extend(.view-repos-button .button);
+      width: 50px;
+      height: auto;
+      color: @white-text-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0 8px 8px 0;
+    }
+
+  }
+
+  .user-item-data {
+    a {
+      font-size: 16px;
+      color: @white-text-color;
+    }
+  }
+}
