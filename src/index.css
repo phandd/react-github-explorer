@@ -39,7 +39,29 @@
 .footer-container {
   width: 100%;
   height: 60px;
-  background-color: #224365;
+  background-color: #0f2035;
+  display: flex;
+  box-sizing: border-box;
+  padding-left: 25px;
+  padding-right: 40px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #aeb6c0;
+}
+.footer-container > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+.footer-container span {
+  opacity: .6;
+}
+.footer-container .copy-right {
+  align-items: flex-end;
+}
+.footer-container .authority {
+  align-items: flex-start;
 }
 .profile {
   display: flex;
