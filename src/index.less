@@ -17,6 +17,7 @@
 @import "components/presentationals/SearchInput/SearchInput.less";
 @import "components/presentationals/UserListItem/UserListItem.less";
 @import "components/presentationals/Nav/Nav.less";
+@import "components/presentationals/LoadingSpinner/LoadingSpinner.less";
 
 
 @primary-color: #224365;
@@ -92,7 +93,13 @@ body {
     position: absolute;
     overflow-y: auto;
     z-index: 100;
-    height: auto;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;  // Safari and Chrome
+    }
+    -ms-overflow-style: none;  // IE 10+
+    overflow: -moz-scrollbars-none;  // Firefox
   };
 
   .site {

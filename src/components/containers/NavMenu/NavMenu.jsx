@@ -26,7 +26,8 @@ export default class NavMenu extends React.Component {
     this.setState({ loadStatus: LOAD_STATUS.loading });
 
     factory.searchUser(this.state.query || '')
-      .then(data => this.setState({ users: data.users }))
+      .then(result => result.users.slice(0, 15))
+      .then(users => this.setState({ users }))
       .then(() => this.setState({ loadStatus: LOAD_STATUS.done }))
       .catch(() => this.setState({ loadStatus: LOAD_STATUS.fail }))
   }

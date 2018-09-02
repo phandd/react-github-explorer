@@ -3,6 +3,7 @@ import SearchInput from '../SearchInput/SearchInput';
 import UserItem from '../UserListItem/UserListItem';
 import { LOAD_STATUS } from '../../../utils/load-status';
 import Offline from '../Offline/Offline';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 export default (props) => {
   let renderedItem;
@@ -16,7 +17,7 @@ export default (props) => {
   }
 
   if (props.loadStatus === LOAD_STATUS.loading) {
-    renderedItem = <div className='loading' />
+    renderedItem = <div className='searching-spinner'><LoadingSpinner /></div>
   }
 
   return (
