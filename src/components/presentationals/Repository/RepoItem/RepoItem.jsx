@@ -6,7 +6,7 @@ export default (props) => {
   return(
     <div className='repo-item'>
       <Link to={{
-        pathname: `/user/${props.owner.login}/repos/${props.name}`,
+        pathname: `${process.env.PUBLIC_URL}/user/${props.owner.login}/repos/${props.name}`,
         state: { repo: props }
       }}/>
       <RepoContent {...props}/>

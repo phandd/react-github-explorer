@@ -8,7 +8,7 @@ export default (props) => {
         <img src={props.avatarUrl} alt="avatar"/>
       </div>
       <div className='user-item-data'>
-        <Link to={ '/user/' + props.login } onClick={props.onUserClick}>{props.name}</Link>
+        <Link to={ `${process.env.PUBLIC_URL}/user/${props.login}` } onClick={props.onUserClick}>{props.name}</Link>
         <span>{props.additional}</span>
       </div>
     </div>
