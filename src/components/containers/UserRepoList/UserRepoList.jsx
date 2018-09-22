@@ -9,7 +9,8 @@ export default class UserRepoList extends React.Component {
     this.state = {
       repos: [],
       searchQuery: '',
-      loadStatus: LOAD_STATUS.loading
+      loadStatus: LOAD_STATUS.loading,
+      searchStatus: LOAD_STATUS.done
     };
 
     this.search = this.search.bind(this);
@@ -25,16 +26,27 @@ export default class UserRepoList extends React.Component {
 
     factory.getUserRepoList(this.props.match.params.username)
       .then(repos => {
-        this.setState({ repos, loadStatus: LOAD_STATUS.done })
+        this.setState({ repos, loadStatus: LOAD_STATUS.done });
+        this.setState({ searchStatus: LOAD_STATUS.done });
       })
       .catch(() => {
-        this.setState({ loadStatus:LOAD_STATUS.fail })
+        this.setState({ loadStatus:LOAD_STATUS.fail });
+        this.setState({ searchStatus: LOAD_STATUS.fail });
       })
   }
 
   search() {
+    this.setState({ searchStatus: LOAD_STATUS.loading });
     factory.searchUserRepo(this.props.match.params.username, this.state.searchQuery)
-      .then(data => this.setState({ repos: data.items }));
+      .then(data => this.setState({ repos: data.items }))
+      .then(() => {
+        this.setState({ loadStatus: LOAD_STATUS.done });
+        this.setState({ searchStatus: LOAD_STATUS.done });
+      })
+      .catch(() => {
+        this.setState({ loadStatus:LOAD_STATUS.fail });
+        this.setState({ searchStatus: LOAD_STATUS.fail });
+      })
   }
 
   render() {
@@ -45,6 +57,7 @@ export default class UserRepoList extends React.Component {
           onSearchChange={e => this.setState({ searchQuery: e.target.value })}
           onSearch={this.search}
           loadStatus={this.state.loadStatus}
+          searchStatus={this.state.searchStatus}
           onRetryFetchingRepoList={this.fetchRepoList}
         />
       </div>

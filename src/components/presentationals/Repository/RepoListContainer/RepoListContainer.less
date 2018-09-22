@@ -3,4 +3,13 @@
   padding: 15px;
   padding-bottom: 50px;
   min-height: 100vh;
+
+  .repo-searching-spinner {
+    display: flex;
+    justify-content: center;
+
+    .lds-dual-ring::after {
+      border-color: @primary-color transparent @primary-color transparent;
+    }
+  }
 }
