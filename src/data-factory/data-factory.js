@@ -1,4 +1,4 @@
-const TOKEN = '1215f2284bfaa3fe088d4a144afacc2326042343';
+const TOKEN = '48d499e1bbc2e206d1e4f720f101af12a5918806'; // Use origin versions' token because of this: https://blog.github.com/2015-02-05-keeping-github-oauth-tokens-safe/
 
 const api = (url) => {
   return fetch(url, {
