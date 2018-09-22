@@ -179,6 +179,13 @@
   padding-bottom: 50px;
   min-height: 100vh;
 }
+.repo-list-container .repo-searching-spinner {
+  display: flex;
+  justify-content: center;
+}
+.repo-list-container .repo-searching-spinner .lds-dual-ring::after {
+  border-color: #224365 transparent #224365 transparent;
+}
 .repo-search {
   width: 100%;
   display: flex;
@@ -206,6 +213,7 @@
   margin-bottom: 0;
 }
 .repo-content span {
+  line-height: 1.8;
   font-size: 14px;
   display: block;
   padding-bottom: 10px;
