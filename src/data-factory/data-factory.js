@@ -1,4 +1,4 @@
-const TOKEN = '77678c846b25752a05319f989a384879ce9f214e';
+const TOKEN = '1215f2284bfaa3fe088d4a144afacc2326042343';
 
 const api = (url) => {
   return fetch(url, {

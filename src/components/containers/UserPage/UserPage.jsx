@@ -59,7 +59,7 @@ export default class UserPage extends React.Component{
     const oldUsername = prevProps.match.params.username;
     const newUsername = this.props.match.params.username;
 
-    if (oldUsername != newUsername) {
+    if (oldUsername !== newUsername) {
       this.loadUserInformation(this.props.match.params.username);
     }
   }

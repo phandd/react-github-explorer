@@ -4,7 +4,7 @@ import SearchInput from '../../SearchInput/SearchInput';
 export default (props) => {
   return (
     <div className='repo-search'>
-      <SearchInput placeHolder={'Find a repository...'} onSearchChange={props.onSearchChange}/>
+      <SearchInput placeHolder={'Find a repository...'} onSearchChange={props.onSearchChange} onEnter={props.onSearch}/>
       <div className='repo-search-button' onClick={props.onSearch}>
         <span>Search</span>
       </div>

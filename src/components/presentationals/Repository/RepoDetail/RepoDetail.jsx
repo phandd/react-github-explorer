@@ -45,6 +45,9 @@ export default class RepoDetail extends React.Component {
           break;
         case TABS.languages:
           renderedContent = <Languages languages={this.props.languages}/>;
+          break;
+        default:
+          renderedContent = <Readme readme={this.props.readme}/>;
       }
     }
 
